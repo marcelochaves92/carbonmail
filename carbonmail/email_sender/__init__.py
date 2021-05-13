@@ -33,16 +33,18 @@ class Email_Sender():
             if event == '-ListEditor-':
                     self.hide_window()
                     init_list_editor(self)
+                    
     def close_window(self):
-        if self.window != None:
+        if self.window is not None:
             self.window.close()
-    
+        self.window=None
+        
     def hide_window(self):
-        if self.window != None:
+        if self.window is not None:
             self.window.hide()
     
     def unhide_window(self):
-        if self.window != None:
+        if self.window is not None:
             self.window.UnHide()
     
     

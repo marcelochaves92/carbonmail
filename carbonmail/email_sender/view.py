@@ -1,13 +1,15 @@
 import PySimpleGUI as sg
 from carbonmail.utils import inner_element_space
-lista =['Administradores','Alunos']
+from carbonmail.list_editor.manager import load_lists
+
+lista = load_lists()
 
 def get_layout():
     frame_campaign = [
         inner_element_space(500),
         [
             sg.Text("Selecione o código:"),
-            sg.In(key="-Code",size=(30,1)),
+            sg.In(key="-Code-",size=(30,1)),
             sg.FileBrowse(
                 "Selecionar",
                 file_types=(("Códigos Python","*.py"),),
@@ -18,7 +20,7 @@ def get_layout():
             sg.Text("Selecione a lista de destinatários"),
             sg.Combo(
                 lista,
-                lista[1],
+                lista[0],
                 key="-Lists-",
                 ), 
         ],
